@@ -1,12 +1,21 @@
 import taskPush from "./create-task"
-let todoArr = []
+let todoArr = [];
+let taskArr = [];
+let activeId;
+
 //factory constructor
 const newTodo = (title,description,dueDate,priority,notes) => {
     return{title,description,dueDate,priority,notes,addTodo};
 }
 //adds obj to array
 function addTodo(obj){
+    const activeTask = document.querySelector(".activeClass");
+    let id =parseInt(activeTask.id);
+    if (activeId!=activeTask.id){todoArr = []; activeId=activeTask.id};
+    if (taskArr[id]!=undefined){todoArr=taskArr[id];}
     todoArr.push(obj);
+    taskArr[id]=todoArr;
+    console.log(taskArr);
 }
 //creates new todo
 function todo(title,description,dueDate,priority,notes){
@@ -15,12 +24,17 @@ function todo(title,description,dueDate,priority,notes){
     console.log(todoArr);
     displayTodo();
 }
-function displayTodo(){
+export function displayTodo(){
+    const activeTask = document.querySelector(".activeClass");
+    let id =parseInt(activeTask.id);
+    todoArr=taskArr[id];
     const container = document.querySelector(".mainContent");
     empty(container);
+    if(todoArr!=undefined){
     for(let i=0;i<todoArr.length;i++){
         createCard(i); 
     }
+}
 }
 function createCard(i){
     let obj = todoArr[i];
@@ -43,5 +57,4 @@ function empty(element) {
        element.firstElementChild.remove();
     }
   }
-
 export default todo
