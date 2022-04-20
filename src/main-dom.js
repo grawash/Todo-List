@@ -23,7 +23,7 @@ function createSidebar(){
     content.appendChild(sidebar);
     sidebarHeading(sidebar);
     taskArea(sidebar);
-    createTask(sidebar);
+    createProject(sidebar);
 
 }
 
@@ -39,7 +39,7 @@ function taskArea(sidebar){
     sidebar.appendChild(area);
 }
 
-function createTask(sidebar){
+function createProject(sidebar){
     const createContainer = document.createElement("div");
     createContainer.classList.add("createContainer");
     const createText = document.createElement("input");
@@ -48,7 +48,7 @@ function createTask(sidebar){
     createText.classList.add("createText");
     createContainer.appendChild(createText);
     const createButton = document.createElement("button");
-    createButton.textContent="Create Task";
+    createButton.textContent="Create Project";
     createButton.classList.add("createButton");
     createContainer.appendChild(createButton);
     sidebar.appendChild(createContainer);
@@ -58,8 +58,14 @@ function contentSpace(){
     const mainContent = document.createElement('div');
     mainContent.classList.add("mainContent");
     content.appendChild(mainContent);
+    addButton(mainContent);
 }
-
+function addButton(div){
+    const addBtn = document.createElement("button");
+    addBtn.classList.add("addBtn");
+    addBtn.textContent="+";
+    div.appendChild(addBtn);
+}
 function createMain(){
     createHeader();
     createSidebar();

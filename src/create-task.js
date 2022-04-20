@@ -1,3 +1,4 @@
+let taskArr= [];
 function appendTask(area,title){
     const task = document.createElement("div");
     task.classList.add("task");
