@@ -40,4 +40,42 @@
     border-right: 2px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 3px 10px rgb(37, 37, 37) ;
     background-color: white;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+}
+.sideHeading{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.5);
+}
+.createContainer{
+    margin-top: auto;
+}
+.createText{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 30px;
+    height: 2.5rem;
+    padding:0 20px;
+    border: none;
+    box-shadow: inset 0px 0px 3px black;
+}
+.createText:hover{
+    background-color: rgb(221, 221, 221);
+}
+.createButton{
+    width: 100%;
+    border-radius: 30px;
+    height: 2.5rem;
+    background-color: rgb(9, 177, 9);
+    border: none;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: white;
+}
+.createButton:hover{
+    background-color: rgb(8, 153, 8);
+    cursor: pointer;
+    box-shadow: 0px 0px 3px black;
 }

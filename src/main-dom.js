@@ -17,10 +17,35 @@ function headerContent(header){
     header.appendChild(searchBar);
 }
 
-function sidebar(){
+function createSidebar(){
     const sidebar = document.createElement('div');
     sidebar.classList.add("sidebar");
     content.appendChild(sidebar);
+    sidebarContent(sidebar);
+}
+
+function sidebarContent(sidebar){
+    const sideHeading = document.createElement("h1");
+    sideHeading.textContent="My Projects";
+    sideHeading.classList.add("sideHeading");
+    sidebar.appendChild(sideHeading);
+    createTask(sidebar);
+
+}
+
+function createTask(sidebar){
+    const createContainer = document.createElement("div");
+    createContainer.classList.add("createContainer");
+    const createText = document.createElement("input");
+    createText.type="text";
+    createText.placeholder="Project Name..";
+    createText.classList.add("createText");
+    createContainer.appendChild(createText);
+    const createButton = document.createElement("button");
+    createButton.textContent="Create Task";
+    createButton.classList.add("createButton");
+    createContainer.appendChild(createButton);
+    sidebar.appendChild(createContainer);
 }
 
 function contentSpace(){
@@ -31,7 +56,7 @@ function contentSpace(){
 
 function createMain(){
     createHeader();
-    sidebar();
+    createSidebar();
     contentSpace();
 }
 
