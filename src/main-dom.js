@@ -21,16 +21,22 @@ function createSidebar(){
     const sidebar = document.createElement('div');
     sidebar.classList.add("sidebar");
     content.appendChild(sidebar);
-    sidebarContent(sidebar);
+    sidebarHeading(sidebar);
+    taskArea(sidebar);
+    createTask(sidebar);
+
 }
 
-function sidebarContent(sidebar){
+function sidebarHeading(sidebar){
     const sideHeading = document.createElement("h1");
     sideHeading.textContent="My Projects";
     sideHeading.classList.add("sideHeading");
     sidebar.appendChild(sideHeading);
-    createTask(sidebar);
-
+}
+function taskArea(sidebar){
+    const area = document.createElement("div");
+    area.classList.add("taskArea");
+    sidebar.appendChild(area);
 }
 
 function createTask(sidebar){

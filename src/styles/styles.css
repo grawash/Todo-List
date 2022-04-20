@@ -14,7 +14,7 @@
 .header{
     grid-column: 1 / span 2;
     background-color: rgba(85, 85, 221, 0.767);
-    box-shadow: 0px 3px 10px rgb(37, 37, 37) ;
+    box-shadow: 0px 3px 10px rgba(37, 37, 37, 0.7) ;
     display: flex;
     align-items: center;
     padding-left: 50px;
@@ -37,12 +37,29 @@
     background-color: rgb(221, 221, 221);
 }
 .sidebar{
-    border-right: 2px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 3px 10px rgb(37, 37, 37) ;
+    box-shadow: 3px 3px 10px rgba(37, 37, 37, 0.7) ;
     background-color: white;
     padding:20px;
     display: flex;
     flex-direction: column;
+}
+.taskArea{
+    max-height: 700px;
+    overflow-y: auto;
+}
+.task{
+    box-sizing: border-box;
+    padding: 20px 40px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.7);
+    text-align: center;
+    border-radius: 15px;
+    max-width: 500px;
+    overflow-x:hidden;
+}
+.task:hover{
+    background-color: rgb(236, 235, 235);
+    cursor: pointer;
 }
 .sideHeading{
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
