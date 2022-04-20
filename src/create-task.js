@@ -6,6 +6,15 @@ function appendTask(area,title){
     taskTitle.textContent=title;
     task.appendChild(taskTitle);
     area.appendChild(task);
+    labelProjects();
 }
-
+function labelProjects(){
+    const projects = document.querySelectorAll(".task");
+    for(let i=0;i<projects.length;i++){
+        projects[i].setAttribute("id",i)
+    }
+}
+function taskPush(arr){
+    taskArr.push(arr);
+}
 export default appendTask

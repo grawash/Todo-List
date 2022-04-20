@@ -1,3 +1,4 @@
+import createModal from "./create-modal";
 const content = document.querySelector(".content");
 function createHeader(){
     const header = document.createElement('div');
@@ -59,12 +60,13 @@ function contentSpace(){
     mainContent.classList.add("mainContent");
     content.appendChild(mainContent);
     addButton(mainContent);
+    createModal(content);
 }
 function addButton(div){
     const addBtn = document.createElement("button");
     addBtn.classList.add("addBtn");
     addBtn.textContent="+";
-    div.appendChild(addBtn);
+    content.appendChild(addBtn);
 }
 function createMain(){
     createHeader();
