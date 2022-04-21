@@ -41,15 +41,19 @@ function createCard(i){
     let card = document.createElement("div");
     card.classList.add("card")
     card.setAttribute('id',i);
-    let title = document.createElement("p");
+    let title = document.createElement("h1");
     title.textContent=obj.title;
-    appendChild(card,title)
+    let description = document.createElement("p");
+    description.textContent=obj.description;
+    appendChild(card,title,description)
+
 
 }
-function appendChild(card,title){
+function appendChild(card,title,description){
     const container = document.querySelector(".mainContent");
     container.appendChild(card)
     card.appendChild(title)
+    card.appendChild(description)
 }
 //removes cards from dom
 function empty(element) {
@@ -62,10 +66,6 @@ function empty(element) {
     taskArr.splice(id,1);
     activeId=undefined;
     console.log(taskArr)
-    const projects = document.querySelectorAll(".task");
-    for(let i=0;i<projects.length;i++){
-        projects[i].setAttribute("id",i)
-    }
 }
 
 export {todo,remover}
