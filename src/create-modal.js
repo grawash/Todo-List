@@ -12,6 +12,7 @@ function createModal(body){
 }
 //creates modal content
 function ceateModalContent(modalContent,modal){
+    var array = ["High","Medium","Low"];
     const title = document.createElement("input");
     title.type="text";
     title.placeholder="Enter Title"
@@ -20,8 +21,14 @@ function ceateModalContent(modalContent,modal){
     description.placeholder="Description"
     const dueDate = document.createElement("input");
     dueDate.type="date";
-    const priority = document.createElement("input");
-    priority.type="select";
+    const priority = document.createElement("select");
+    priority.id = "priority";
+    for (var i = 0; i < array.length; i++) {
+        var option = document.createElement("option");
+        option.value = array[i];
+        option.text = array[i];
+        priority.appendChild(option);
+    }
     const notes = document.createElement("input");
     notes.type="text";
     const submit = document.createElement("button");
