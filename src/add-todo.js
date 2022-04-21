@@ -57,4 +57,15 @@ function empty(element) {
        element.firstElementChild.remove();
     }
   }
-export default todo
+
+  function remover(id){
+    taskArr.splice(id,1);
+    activeId=undefined;
+    console.log(taskArr)
+    const projects = document.querySelectorAll(".task");
+    for(let i=0;i<projects.length;i++){
+        projects[i].setAttribute("id",i)
+    }
+}
+
+export {todo,remover}

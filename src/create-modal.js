@@ -1,4 +1,4 @@
-import todo from "./add-todo";
+import {todo,remover} from "./add-todo";
 import clear from "./clear-modal";
 //creates hidden modal on page
 function createModal(body){

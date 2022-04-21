@@ -51,7 +51,11 @@ function createProject(sidebar){
     const createButton = document.createElement("button");
     createButton.textContent="Create Project";
     createButton.classList.add("createButton");
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent="Delete Project";
+    deleteButton.classList.add("deleteButton");
     createContainer.appendChild(createButton);
+    createContainer.appendChild(deleteButton);
     sidebar.appendChild(createContainer);
 }
 
