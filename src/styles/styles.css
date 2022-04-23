@@ -30,13 +30,63 @@
     box-shadow: 0px 3px 8px black;
 }
 .modalContent>input{
+    height: 4rem;
+    width: 50%;
+    margin: 10px;
+    border: none;
+    box-shadow: inset 0px 0px 3px black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+
+}
+select{
     height: 3rem;
     width: 50%;
     margin: 10px;
     border: none;
     box-shadow: inset 0px 0px 3px black;
     border-radius: 5px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    background-color: white;
+    font-size: 1rem;
 
+}
+textarea{
+    height: 6rem;
+    width: 50%;
+    margin: 10px;
+    border: none;
+    box-shadow: inset 0px 0px 3px black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 1rem;
+
+}
+.buttonContainer{
+    display: flex;
+}
+.buttonContainer>button{
+    margin:20px;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 30px;
+    border:none;
+    font-size: 1rem;
+    color: white;
+}
+.buttonContainer>button:hover{
+    box-shadow: 0px 0px 3px black;
+    filter: brightness(85%);
+    cursor: pointer;
+}
+.modalSubmit{
+    background-color: rgb(9, 177, 9);
+}
+.modalCancel{
+    background-color: rgb(201, 9, 9);
 }
 .content{
     height: 100vh;
@@ -149,12 +199,20 @@
 }
 .mainContent{
     box-sizing: border-box;
-    padding: 20px;
     display: grid;
+    padding: 20px;
     grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    grid-template-rows: 50px;
     grid-auto-rows: 30%;
     gap:20px;
     overflow-y: auto;
+    height: 100%;
+}
+.contentHeading{
+    grid-column: 1 / span 4;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.5);
 }
 .card{
     display: flex;
