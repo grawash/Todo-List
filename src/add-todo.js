@@ -45,9 +45,16 @@ function createCard(i){
     title.textContent=obj.title;
     let description = document.createElement("p");
     description.textContent=obj.description;
+    let priority = obj.priority;
+    setPriority(card,priority);
     appendChild(card,title,description)
 
 
+}
+function setPriority(card, priority){
+    if (priority=="High"){card.style.borderLeft="10px solid rgb(201, 9, 9)"}
+    else if (priority=="Medium"){card.style.borderLeft="10px solid yellow"}
+    else{card.style.borderLeft="10px solid rgb(8, 153, 8)"}
 }
 function appendChild(card,title,description){
     const container = document.querySelector(".mainContent");
@@ -57,15 +64,17 @@ function appendChild(card,title,description){
 }
 //removes cards from dom
 function empty(element) {
-    while(element.firstElementChild) {
-       element.firstElementChild.remove();
+    while(element.childNodes.length>1) {
+       element.removeChild(element.lastChild);
     }
   }
 
-  function remover(id){
+function remover(id){
     taskArr.splice(id,1);
     activeId=undefined;
-    console.log(taskArr)
+    console.log(taskArr);
+    const container = document.querySelector(".mainContent");
+    empty(container);
 }
 
 export {todo,remover}

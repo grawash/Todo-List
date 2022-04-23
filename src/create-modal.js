@@ -29,20 +29,25 @@ function ceateModalContent(modalContent,modal){
         option.text = array[i];
         priority.appendChild(option);
     }
-    const notes = document.createElement("input");
-    notes.type="text";
+    const notes = document.createElement("textarea");
+    notes.placeholder="Take Notes..";
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("buttonContainer")
     const submit = document.createElement("button");
     submit.textContent="submit";
+    submit.classList.add("modalSubmit");
     const cancel = document.createElement("button");
     cancel.textContent="cancel";
+    cancel.classList.add("modalCancel");
     cancel.classList.add("closeModal");
+    buttonContainer.appendChild(submit);
+    buttonContainer.appendChild(cancel);
     modalContent.appendChild(title);
     modalContent.appendChild(description);
     modalContent.appendChild(dueDate);
     modalContent.appendChild(priority);
     modalContent.appendChild(notes);
-    modalContent.appendChild(submit);
-    modalContent.appendChild(cancel);
+    modalContent.appendChild(buttonContainer);
     cancel.addEventListener('click', () => {
         modal.style.display='none';
         clear(title,description,dueDate,priority,notes);
