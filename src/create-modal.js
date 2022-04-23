@@ -4,7 +4,7 @@ import clear from "./clear-modal";
 function createModal(body){
     const modal = document.createElement("div");
     modal.classList.add("modal");
-    const modalContent = document.createElement("div");
+    const modalContent = document.createElement("form");
     modalContent.classList.add("modalContent");
     ceateModalContent(modalContent,modal);
     modal.appendChild(modalContent);
@@ -15,12 +15,15 @@ function ceateModalContent(modalContent,modal){
     var array = ["High","Medium","Low"];
     const title = document.createElement("input");
     title.type="text";
-    title.placeholder="Enter Title"
+    title.placeholder="Enter Title";
+    title.setAttribute("required", "");
     const description = document.createElement("input");
     description.type="text";
     description.placeholder="Description"
+    description.required=true;
     const dueDate = document.createElement("input");
     dueDate.type="date";
+    dueDate.setAttribute("required", "");
     const priority = document.createElement("select");
     priority.id = "priority";
     for (var i = 0; i < array.length; i++) {
@@ -29,6 +32,7 @@ function ceateModalContent(modalContent,modal){
         option.text = array[i];
         priority.appendChild(option);
     }
+    priority.required="true";
     const notes = document.createElement("textarea");
     notes.placeholder="Take Notes..";
     const buttonContainer = document.createElement("div");
@@ -53,9 +57,11 @@ function ceateModalContent(modalContent,modal){
         clear(title,description,dueDate,priority,notes);
     })
     submit.addEventListener('click', () => {
+        if(title.value!="" && description.value!="" && dueDate.value!="" && priority.value!=""){
         todo(title.value,description.value,dueDate.value,priority.value,notes.value);
         modal.style.display='none';
         clear(title,description,dueDate,priority,notes);
+        }
     })
 }
 
