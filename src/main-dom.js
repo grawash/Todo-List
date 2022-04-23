@@ -61,7 +61,11 @@ function createProject(sidebar){
 
 function contentSpace(){
     const mainContent = document.createElement('div');
+    const contentHeading = document.createElement("h1");
+    contentHeading.textContent="My Tasks";
+    contentHeading.classList.add("contentHeading");
     mainContent.classList.add("mainContent");
+    mainContent.appendChild(contentHeading);
     content.appendChild(mainContent);
     addButton(mainContent);
     createModal(content);
