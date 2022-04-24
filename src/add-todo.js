@@ -2,6 +2,9 @@ import taskPush from "./create-task"
 import { formatDistanceToNow } from 'date-fns'
 let todoArr = [];
 let taskArr = [];
+if(JSON.parse(localStorage.getItem("projectArray"))!=null){
+taskArr=JSON.parse(localStorage.getItem("projectArray"));
+}
 let activeId;
 
 //factory constructor
@@ -10,6 +13,7 @@ const newTodo = (title,description,dueDate,priority,notes) => {
 }
 //adds obj to array
 function addTodo(obj){
+    console.log(taskArr);
     const activeTask = document.querySelector(".activeClass");
     const activeCard = document.querySelector(".activeTask");
     let id =parseInt(activeTask.id);
@@ -22,13 +26,12 @@ function addTodo(obj){
     todoArr.push(obj);
     }
     taskArr[id]=todoArr;
-    console.log(taskArr);
+    localStorage.setItem('projectArray', JSON.stringify(taskArr));
 }
 //creates new todo
 function todo(title,description,dueDate,priority,notes){
     let obj = newTodo(title,description,dueDate,priority,notes);
     addTodo(obj);
-    console.log(todoArr);
     displayTodo();
 }
 export function displayTodo(){
@@ -102,6 +105,7 @@ function cardRemove(card,e){
     let i = parseInt(card.id);;
     let id = parseInt(activeTask.id);
     taskArr[id].splice(i,1);
+    localStorage.setItem('projectArray', JSON.stringify(taskArr));
     todoArr
     card.remove();
 }
@@ -132,6 +136,7 @@ function remover(id){
     console.log(taskArr);
     const container = document.querySelector(".mainContent");
     empty(container);
+    localStorage.setItem('projectArray', JSON.stringify(taskArr));
 }
 
 export {todo,remover}
