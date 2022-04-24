@@ -1,9 +1,9 @@
 import createMain from "./main-dom"
-import appendTask from "./create-task"
+import {appendTask,reloadProjects} from "./create-task"
 import deleteTask from "./delete-project";
 import "./styles/styles.css"
 createMain();
-const body = document.querySelector("body");
+reloadProjects();
 const title= document.querySelector(".createText");
 const submit= document.querySelector(".createButton");
 const area = document.querySelector(".taskArea");
