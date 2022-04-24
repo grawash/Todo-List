@@ -4,5 +4,9 @@ function clear(title,description,dueDate,priority,notes){
     dueDate.value='';
     priority.value='';
     notes.value='';
+    const activeTask = document.querySelector(".activeTask");
+    if(activeTask!=undefined){
+        activeTask.classList.remove("activeTask");
+    }
 }
 export default clear
