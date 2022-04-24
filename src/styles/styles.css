@@ -224,6 +224,10 @@ textarea{
     padding: 20px;
 
 }
+.card:hover{
+    background-color: rgb(236, 235, 235);
+    cursor: pointer;
+}
 .card>h1{
     font-size: 3rem;
 }
@@ -239,6 +243,7 @@ textarea{
     height: 2.5rem;
     background-color: rgb(201, 9, 9);
     border: none;
+    color: white;
 }
 .deleteCard:hover{
     cursor: pointer;
