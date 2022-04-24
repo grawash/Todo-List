@@ -16,14 +16,17 @@ function ceateModalContent(modalContent,modal){
     const title = document.createElement("input");
     title.type="text";
     title.placeholder="Enter Title";
+    title.classList.add("title");
     title.setAttribute("required", "");
     const description = document.createElement("input");
     description.type="text";
-    description.placeholder="Description"
+    description.placeholder="Description";
     description.required=true;
+    description.classList.add("description");
     const dueDate = document.createElement("input");
     dueDate.type="date";
     dueDate.setAttribute("required", "");
+    dueDate.classList.add("dueDate");
     const priority = document.createElement("select");
     priority.id = "priority";
     for (var i = 0; i < array.length; i++) {
@@ -33,8 +36,10 @@ function ceateModalContent(modalContent,modal){
         priority.appendChild(option);
     }
     priority.required="true";
+    priority.classList.add("priority");
     const notes = document.createElement("textarea");
     notes.placeholder="Take Notes..";
+    notes.classList.add("notes");
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("buttonContainer")
     const submit = document.createElement("button");

@@ -11,10 +11,16 @@ const newTodo = (title,description,dueDate,priority,notes) => {
 //adds obj to array
 function addTodo(obj){
     const activeTask = document.querySelector(".activeClass");
+    const activeCard = document.querySelector(".activeTask");
     let id =parseInt(activeTask.id);
     if (activeId!=activeTask.id){todoArr = []; activeId=activeTask.id};
     if (taskArr[id]!=undefined){todoArr=taskArr[id];}
+    if(activeCard!=undefined){
+        todoArr[parseInt(activeCard.id)]=obj;
+    }
+    else{
     todoArr.push(obj);
+    }
     taskArr[id]=todoArr;
     console.log(taskArr);
 }
@@ -37,6 +43,7 @@ export function displayTodo(){
     }
 }
 }
+//creates task cards
 function createCard(i){
     let obj = todoArr[i];
     let card = document.createElement("div");
@@ -50,15 +57,43 @@ function createCard(i){
     let deleteCard = document.createElement("button")
     deleteCard.classList.add("deleteCard");
     deleteCard.textContent="Delete";
-    deleteCard.addEventListener("click", ()=>{ cardRemove(card,i)})
+    deleteCard.addEventListener("click", ()=>{ cardRemove(card);})
     let date = document.createElement("p");
     date.textContent=`Due Date ${obj.dueDate}`;
     setPriority(card,priority);
-    appendChild(card,title,description,date,deleteCard)
+    card.addEventListener('click', () => {
+        const modal = document.querySelector('.modal');
+        const tasks = document.querySelectorAll(".card");
+        for(let i=0;i<tasks.length;i++){
+            if (tasks[i].classList.contains('activeTask')){tasks[i].classList.remove("activeTask");}
+        }
+        card.classList.add("activeTask");
+        populateModal(parseInt(card.id));
+        modal.style.display="block";
+
+    })
+    appendChild(card,title,description,date,deleteCard);
 
 
 }
-function cardRemove(card){
+function populateModal(id){
+    const active = document.querySelector(".activeClass");
+    const projId = parseInt(active.id);
+    const title = document.querySelector(".title");
+    title.value=taskArr[projId][id].title;
+    const description = document.querySelector(".description");
+    description.value = taskArr[projId][id].description;
+    const Date = document.querySelector(".dueDate");
+    Date.value = taskArr[projId][id].dueDate;
+    const priority = document.querySelector(".priority");
+    priority.value = taskArr[projId][id].priority;
+    const notes = document.querySelector(".notes");
+    notes.value = taskArr[projId][id].notes;
+}
+function cardRemove(card,e){
+    if (!e) var e = window.event
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
     const activeTask = document.querySelector(".activeClass");
     const cards = document.querySelectorAll(".card");
     for(let i=0;i<todoArr.length;i++){
@@ -69,8 +104,6 @@ function cardRemove(card){
     taskArr[id].splice(i,1);
     todoArr
     card.remove();
-    console.log();
-    console.log(taskArr);
 }
 //sets priority color on cards
 function setPriority(card, priority){
